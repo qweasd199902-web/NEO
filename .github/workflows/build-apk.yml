@@ -43,7 +43,17 @@ jobs:
 
       - name: Clean Gradle cache
         run: rm -rf ~/.gradle/caches   
-          
+           
+      - name: Force Gradle to use JDK 21
+        run: |
+          export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
+          echo "JAVA_HOME=$JAVA_HOME"
+          ./gradlew --version
+
+      - name: Clear Gradle cache
+        run: rm -rf ~/.gradle/caches
+
+        
       - name: Build APK with Gradle
         run: |
           cd android

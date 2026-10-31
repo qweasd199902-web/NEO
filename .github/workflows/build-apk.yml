@@ -48,6 +48,7 @@ jobs:
         run: |
           export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
           echo "JAVA_HOME=$JAVA_HOME"
+          cd android
           ./gradlew --version
 
       - name: Clear Gradle cache

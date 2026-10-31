@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-neon-pink: #ff007f;
+    --color-neon-cyan: #00f0ff;
+    --color-neon-purple: #b026ff;
+    --color-neon-yellow: #ffe600;
+    --color-neon-green: #00ff66;
+    
+    /* Default Blood Dragon Theme */
+    --theme-bg: #06030e;
+    --theme-card-bg: #130626;
+    --theme-card-border: rgba(255, 0, 127, 0.4);
+    --theme-grid-1: rgba(255, 0, 127, 0.2);
+    --theme-grid-2: rgba(0, 240, 255, 0.2);
+    --theme-primary: #ff007f;
+    --theme-secondary: #00f0ff;
+    --theme-glow: rgba(255, 0, 127, 0.5);
+  }
+
+  /* Far Cry 3 Blood Dragon Theme */
+  .theme-blood-dragon {
+    --theme-bg: #06030e;
+    --theme-card-bg: #140628;
+    --theme-card-border: rgba(255, 0, 127, 0.45);
+    --theme-grid-1: rgba(255, 0, 127, 0.22);
+    --theme-grid-2: rgba(0, 240, 255, 0.22);
+    --theme-primary: #ff007f;
+    --theme-secondary: #00f0ff;
+    --theme-glow: rgba(255, 0, 127, 0.6);
+  }
+
+  /* Miami Vice Theme */
+  .theme-miami {
+    --theme-bg: #050b18;
+    --theme-card-bg: #0a1736;
+    --theme-card-border: rgba(0, 240, 255, 0.5);
+    --theme-grid-1: rgba(0, 240, 255, 0.25);
+    --theme-grid-2: rgba(236, 72, 153, 0.25);
+    --theme-primary: #00f0ff;
+    --theme-secondary: #ec4899;
+    --theme-glow: rgba(0, 240, 255, 0.6);
+  }
+
+  /* Matrix Terminal Theme */
+  .theme-matrix {
+    --theme-bg: #010c05;
+    --theme-card-bg: #04200e;
+    --theme-card-border: rgba(0, 255, 102, 0.5);
+    --theme-grid-1: rgba(0, 255, 102, 0.28);
+    --theme-grid-2: rgba(16, 185, 129, 0.2);
+    --theme-primary: #00ff66;
+    --theme-secondary: #10b981;
+    --theme-glow: rgba(0, 255, 102, 0.6);
+  }
+
+  /* Outrun Sunset Theme */
+  .theme-outrun {
+    --theme-bg: #140409;
+    --theme-card-bg: #290812;
+    --theme-card-border: rgba(245, 158, 11, 0.5);
+    --theme-grid-1: rgba(245, 158, 11, 0.28);
+    --theme-grid-2: rgba(239, 68, 68, 0.22);
+    --theme-primary: #f59e0b;
+    --theme-secondary: #ef4444;
+    --theme-glow: rgba(245, 158, 11, 0.6);
+  }
+
+  body {
+    background-color: var(--theme-bg, #06030e);
+    color: #e2e8f0;
+    font-family: 'Chakra Petch', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.4s ease;
+  }
+
+  h1, h2, h3, .font-orbitron {
+    font-family: 'Orbitron', monospace, sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'Share Tech Mono', monospace;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090417;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff007f;
+  border-radius: 3px;
+  box-shadow: 0 0 10px #ff007f;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00f0ff;
+  box-shadow: 0 0 10px #00f0ff;
+}
+
+/* CRT Scanlines Overlay */
+.crt-overlay {
+  pointer-events: none;
+  background: linear-gradient(
+    rgba(18, 16, 26, 0) 50%,
+    rgba(0, 0, 0, 0.35) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
+  );
+  background-size: 100% 3px, 6px 100%;
+}
+
+/* Synthwave Grid Animation */
+.synthwave-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--theme-grid-1, rgba(255, 0, 127, 0.15)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--theme-grid-2, rgba(0, 240, 255, 0.15)) 1px, transparent 1px);
+}
+
+.synthwave-grid-perspective {
+  perspective: 450px;
+}
+
+.synthwave-floor {
+  background-image: 
+    linear-gradient(to right, var(--theme-grid-1, rgba(255, 0, 127, 0.3)) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--theme-grid-2, rgba(0, 240, 255, 0.3)) 1px, transparent 1px);
+  background-size: 50px 50px;
+  transform: rotateX(65deg);
+  transform-origin: center top;
+  animation: grid-scroll 20s linear infinite;
+  transition: background-image 0.4s ease;
+}
+
+@keyframes grid-scroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 500px;
+  }
+}
+
+/* Neon Glows */
+.neon-glow-pink {
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.5), inset 0 0 15px rgba(255, 0, 127, 0.2);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.5), inset 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.neon-glow-purple {
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.5), inset 0 0 15px rgba(176, 38, 255, 0.2);
+}
+
+.neon-text-pink {
+  text-shadow: 0 0 8px rgba(255, 0, 127, 0.8), 0 0 20px rgba(255, 0, 127, 0.4);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.8), 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+.neon-text-yellow {
+  text-shadow: 0 0 8px rgba(255, 230, 0, 0.8), 0 0 20px rgba(255, 230, 0, 0.4);
+}
+
+/* Pulsing cyber borders */
+@keyframes cyber-pulse {
+  0%, 100% {
+    border-color: rgba(255, 0, 127, 0.8);
+    box-shadow: 0 0 12px rgba(255, 0, 127, 0.4);
+  }
+  50% {
+    border-color: rgba(0, 240, 255, 0.8);
+    box-shadow: 0 0 18px rgba(0, 240, 255, 0.5);
+  }
+}
+
+.cyber-border-animated {
+  animation: cyber-pulse 4s ease-in-out infinite;
+}
+
+/* Glitch animation */
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite;
+}

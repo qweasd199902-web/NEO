@@ -1,0 +1,6 @@
+{
+  "name": "Neon Fitness RPG",
+  "description": "Cyberpunk 80s & Synthwave Fitness RPG Clicker with full offline workout tracking, progression, inventory, music player, and customizable cyberpunk themes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

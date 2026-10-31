@@ -40,7 +40,12 @@ jobs:
 
       - name: Clear Gradle cache
         run: rm -rf ~/.gradle/caches
-        
+
+      - name: Force JDK 21 and clear cache
+        run: |
+          sudo rm -rf ~/.gradle/caches
+          java -version   
+          
       - name: Build APK with Gradle
         run: |
           cd android

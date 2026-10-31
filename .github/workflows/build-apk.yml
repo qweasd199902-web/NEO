@@ -29,7 +29,7 @@ jobs:
         run: npx cap sync android
 
       - name: Set up JDK 21
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5
         with:
           java-version: '21'
           distribution: 'temurin'
@@ -41,10 +41,8 @@ jobs:
       - name: Clear Gradle cache
         run: rm -rf ~/.gradle/caches
 
-      - name: Force JDK 21 and clear cache
-        run: |
-          sudo rm -rf ~/.gradle/caches
-          java -version   
+      - name: Clean Gradle cache
+        run: rm -rf ~/.gradle/caches   
           
       - name: Build APK with Gradle
         run: |
